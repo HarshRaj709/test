@@ -1,0 +1,30 @@
+sudo apt install python3.12-venv        (need this package to create venv)
+python3 -m venv myenv                   (created this venv)
+
+
+Why to use pipenv over venv?
+
+pipenv: Automatically resolves dependency conflicts when installing packages, ensuring 
+that your project has compatible versions of all required libraries.
+venv: Does not provide built-in dependency resolution. Developers need to resolve 
+conflicts manually.
+
+First of we need to install pipenv.
+        pip install pipenv
+        pipenv install              (this helps to install dependecies on other device.)
+
+
+okay so pipenv is created we need to actiavte it using 
+        pipenv shell
+    Activated
+
+
+This will install the package and automatically update the Pipfile with the dependency.
+    pipenv install requests
+
+If you want to install a specific version of a package:
+    pipenv install requests==2.28.1
+
+
+Now just share the whole the project using  git to other than they can install all the 
+dependecies through pipfile.lock
