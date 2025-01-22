@@ -28,3 +28,142 @@ If you want to install a specific version of a package:
 
 Now just share the whole the project using  git to other than they can install all the 
 dependecies through pipfile.lock
+
+Finnaly pushed with pipenv file ......
+
+exit command is use to exit from pipenv.
+
+
+
+
+-----------------------------------------------------------------------------------------
+
+
+                            -------------> pyenv <---------------
+
+its just a version manager, helps to manage multiple versions of python....
+
+Why Use pyenv?
+    Install multiple versions of Python (e.g., 3.8, 3.12) and easily switch between them.
+    Manage project-specific Python versions with .python-version.
+    Avoid relying on the system Python, which might break if you install or remove global 
+    packages.
+
+Too many things need to run this successfully.
+    sudo apt install -y make build-essential libssl-dev zlib1g-dev \
+    libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+    libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev \
+    git
+
+Now we can run command to install pyenv 
+    curl https://pyenv.run | bash
+
+After that we need to clone the official repo of pyenv....
+    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+Check its version.
+    ~/.pyenv/bin/pyenv --version        -- The ~ symbol in Linux (and Unix-based systems
+                                            like Ubuntu) is shorthand for your home 
+                                            directory.
+
+                                            cd ~  == cd /home/savera
+
+Install and Manage Python Versions with pyenv
+The first real step with pyenv is to use it to manage different Python versions for 
+your projects. Here's how to get started:
+
+Install Python Versions
+Use pyenv to install different Python versions that you need for your projects. For example:
+    pyenv install 3.8.10
+    pyenv install 3.9.6
+
+we can also check available versions:
+    pyenv install --list
+
+Set python version globally
+    pyenv global 3.8.10
+
+
+
+------------> Main things
+
+Set Python Versions per Project
+If you need different versions of Python for different projects, you can specify a 
+local version for a project directory.
+
+Set Local Version
+Navigate to the project folder and set a specific Python version for that project:
+    cd ~/Desktop/my_project
+    pyenv local 3.9.6
+This creates a .python-version file in that directory, and whenever you’re in that 
+directory, pyenv will automatically switch to the correct Python version (3.9.6 in 
+this case).
+
+
+To check current pyenv python version
+    pyenv version
+
+
+
+----------------------------------------------------------------------------------------
+
+            --------------> MRO (Method Resolution Order) <---------------
+
+It tells the oops order to find method or attributes
+
+There are mainly 3 Rules in Method Resolution Order.
+
+Rule 1: Python first search in child class and then goes to parent child.
+
+Rule 2: It follows Depth first left to right approach
+
+Rule 3: we can use mro()method for knowing mro of any class objects.
+
+Program in mro.py file.
+
+
+----------------------------------------------------------------------------------------
+
+                ---------> Context Manager in Python <------------  
+
+A Context Manager in Python is a construct that allows you to set up and tear down 
+resources automatically. It is typically used (with) the with statement and is ideal 
+for tasks such as file handling, database connections, network connections, or locking 
+mechanisms, where resources need to be acquired and released cleanly.
+
+There are 2 main things in context Manger ... Enter and exit
+
+    __enter__(): The open() function opens the file and returns the file object (file).
+    __exit__(): When the with block exits (either after successful execution or an 
+                exception), the __exit__() method automatically closes the file.
+
+    class MyContextManager:
+        def __enter__(self):
+            print("Entering the context")
+            return self  # Optionally return a value to the `as` variable
+
+        def __exit__(self, exc_type, exc_value, traceback):
+            print("Exiting the context")
+            if exc_type:
+                print(f"An error occurred: {exc_value}")
+            return True  # Suppresses exceptions (if any)
+
+    # Using the custom context manager
+    with MyContextManager() as cm:
+        print("Inside the context")
+        # Uncomment the next line to see exception handling in action
+        # raise ValueError("Something went wrong")
+
+Main Use:
+Ensures resources like files, network connections, or database connections are 
+closed or released, even when an exception occurs.
+
+
+----------------------------------------------------------------------------------------
+
+        ------------------> Multi threading And Multi Tasking <----------------
+
+
+MultiThreading is basically used to run multiple thread simultaneously but because of 
+python's GIL it not work concurrently as GIL allows to run 1 thread at a time, limiting 
+true parallelism in CPU-bound tasks.
