@@ -10,7 +10,7 @@ venv: Does not provide built-in dependency resolution. Developers need to resolv
 conflicts manually.
 
 First of we need to install pipenv.
-        pip install pipenv
+        sudo pip install pipenv
         pipenv install              (this helps to install dependecies on other device.)
 
 
@@ -82,6 +82,9 @@ we can also check available versions:
 
 Set python version globally
     pyenv global 3.8.10
+
+set python version Locally
+    pyenv locally 3.9.9
 
 
 
