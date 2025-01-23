@@ -307,7 +307,16 @@ Steeper learning curve due to async/await syntax.
 
 2.3 View Repository Status
 
-    git status
+    git status          --- $ git status
+                            On branch main
+                            Your branch is up to date with 'origin/main'.
+
+                            Changes not staged for commit:
+                            (use "git add <file>..." to update what will be committed)
+                            (use "git restore <file>..." to discard changes in working directory)
+                                    modified:   instructions.txt
+
+                            no changes added to commit (use "git add" and/or "git commit -a")
 
                             Staging and Committing Changes
 
@@ -331,21 +340,31 @@ Steeper learning curve due to async/await syntax.
     git branch <branch-name>
 
 4.2 Switch Branch
-
-    git checkout <branch-name>
+    git checkout <branch-name>          name of branch on which you want to move
 
 4.3 Create and Switch to a New Branch
 
     git checkout -b <branch-name>
 
 4.4 List All Branches
+    git branch          (local branches)
+    git branch -r       (to see remote branches)
+    git branch -a       (to see all branches)
 
-    git branch
 
 4.5 Delete a Branch
 
-    git branch -d <branch-name> # Safe deletion
+    git branch -d <branch-name> # Safe deletion         local brach delete
     git branch -D <branch-name> # Force deletion
+
+    git push origin --delete harsh              use to delete remote branch
+                                        $ git push origin --delete harsh
+                                        To https://github.com/HarshRaj709/test.git
+                                        - [deleted]         harsh
+                                        pythonsavera@savera:~/Desktop/p
+
+4.6 Rename the branch
+    git branch -M <name>
 
                                 Merging and Rebasing
 
