@@ -167,3 +167,111 @@ closed or released, even when an exception occurs.
 MultiThreading is basically used to run multiple thread simultaneously but because of 
 python's GIL it not work concurrently as GIL allows to run 1 thread at a time, limiting 
 true parallelism in CPU-bound tasks.
+
+Use Case:
+    I/O-bound operations (e.g., reading files, network requests, database queries).
+    Lightweight tasks that require sharing memory between threads.
+
+
+Multiprocessing involves running multiple processes, each with its own Python 
+interpreter and memory space. This bypasses the GIL, allowing true parallelism and 
+making it ideal for CPU-bound tasks.
+
+Use Case:
+    CPU-bound tasks (e.g., mathematical computations, data processing).
+    Tasks requiring true parallelism across multiple CPU cores.
+
+
+
+
+----------------------------------------------------------------------------------------
+
+                ---------------> Asyncio <--------------------
+
+asyncio is a powerful Python library used for writing asynchronous programs. It 
+provides a foundation for building concurrent code using coroutines, event loops, 
+tasks, and more. This guide will cover every aspect of asyncio, from basic concepts 
+to advanced usage.
+
+    Key Features:
+        Efficient handling of I/O-bound tasks.
+        Single-threaded cooperative multitasking.
+        Non-blocking execution of multiple tasks.
+
+    Simply concurrent programing ke liye use krte h to save time.
+
+
+Example:
+        async def task1():
+            print("Task 1 is starting...")
+            await asyncio.sleep(2)
+            print("Task 1 is done!")
+
+        async def task2():
+            print("Task 2 is starting...")
+            await asyncio.sleep(1)
+            print("Task 2 is done!")
+
+        async def main():
+            # Schedule both tasks to run concurrently
+            await asyncio.gather(task1(), task2())         #used to gather all the tasks
+
+        asyncio.run(main())             #then run them concurrently and jiska execution 
+                                        time km hoga wo run hokr khatam ho jayega and 
+                                        dusra run hota rhega.
+
+
+MultiThreading, Multitasking and asyncio looks same but they works differently.
+
+------------------->Multiprocessing
+
+Definition: A method of achieving parallelism by using multiple processes, each with 
+its own memory space.
+
+How it works: Spawns separate processes, each running independently with its own Python 
+interpreter.
+Use Case: Best for CPU-bound tasks (e.g., calculations, data processing) as it can 
+utilize multiple cores of a CPU.
+Advantages:
+Bypasses the Global Interpreter Lock (GIL), allowing true parallel execution.
+Suitable for tasks that require heavy computation.
+
+Disadvantages:
+Higher memory usage since each process has its own memory space.
+Inter-process communication (IPC) can be complex and slow.
+
+
+
+------------------->Multithreading
+
+Definition: A method of achieving concurrency using threads within a single process.
+
+How it works: Threads share the same memory space and are lightweight compared to 
+processes.
+Use Case: Best for I/O-bound tasks (e.g., file I/O, network requests) where threads 
+can wait for resources without blocking others.
+Advantages:
+Lower memory overhead since threads share the same memory.
+Easier to share data between threads.
+Disadvantages:
+Limited by the GIL in Python, preventing true parallelism for CPU-bound tasks.
+Potential for thread safety issues (e.g., race conditions).
+
+
+
+
+--------------------------->Asyncio
+
+
+Definition: A framework for writing asynchronous, non-blocking I/O code using coroutines.
+
+How it works: Runs an event loop to manage coroutines, allowing them to pause and 
+resume execution without blocking the loop.
+Use Case: Ideal for high-level I/O-bound and network-bound tasks (e.g., web scraping, 
+server handling, API calls) requiring high concurrency.
+Advantages:
+Lightweight and efficient for handling thousands of concurrent connections.
+No need to manage threads or processes.
+Disadvantages:
+Not suitable for CPU-bound tasks (can be combined with multiprocessing).
+Steeper learning curve due to async/await syntax.

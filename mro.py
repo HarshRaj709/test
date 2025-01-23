@@ -33,29 +33,77 @@
 #     raise ValueError("Something went wrong")
 
 
-import threading
-import time
+# import threading
+# import time
 
-def print_numbers():
-    for i in range(1, 6):
-        print(f"Number: {i}")
-        time.sleep(1)  # Simulates a delay
+# def print_numbers():
+#     for i in range(1, 6):
+#         print(f"Number: {i}")
+#         time.sleep(1)  # Simulates a delay
 
-def print_letters():
-    for letter in 'ABCDE':
-        print(f"Letter: {letter}")
-        time.sleep(1)  # Simulates a delay
+# def print_letters():
+#     for letter in 'ABCDE':
+#         print(f"Letter: {letter}")
+#         time.sleep(1)  # Simulates a delay
 
-# Creating threads
-thread1 = threading.Thread(target=print_numbers)
-thread2 = threading.Thread(target=print_letters)
+# # Creating threads
+# thread1 = threading.Thread(target=print_numbers)
+# thread2 = threading.Thread(target=print_letters)
 
-# Starting threads
-thread1.start()
-thread2.start()
+# # Starting threads
+# thread1.start()
+# thread2.start()
 
-# Waiting for threads to finish
-thread1.join()
-thread2.join()
+# # Waiting for threads to finish
+# # thread1.join()
+# # thread2.join()
 
-print("Both tasks are done!")
+# print("Both tasks are done!")
+
+
+
+# from multiprocessing import Process
+
+# def print_square(numbers):
+#     for n in numbers:
+#         print(f"Square of {n}: {n**2}")
+
+# def print_cube(numbers):
+#     for n in numbers:
+#         print(f"Cube of {n}: {n**3}")
+
+# numbers = [1, 2, 3, 4, 5]
+
+# # Creating processes
+# process1 = Process(target=print_square, args=(numbers,))
+# process2 = Process(target=print_cube, args=(numbers,))
+
+# # Starting processes
+# process1.start()
+# process2.start()
+
+# # Waiting for processes to finish
+# # process1.join()
+# # process2.join()
+
+# print("Both calculations are done!")
+
+
+
+import asyncio
+
+async def jump_short():
+    print("Jumping short")
+    await asyncio.sleep(2)      #here we can download the file which may take some time
+    print("Short jump done")
+
+async def jump_long():
+    print("Jumping long")
+    await asyncio.sleep(5)
+    print("Long jump done")
+
+async def main():
+    await asyncio.gather(jump_short(), jump_long())
+
+asyncio.run(main())
+
