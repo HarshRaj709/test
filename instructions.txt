@@ -275,3 +275,201 @@ No need to manage threads or processes.
 Disadvantages:
 Not suitable for CPU-bound tasks (can be combined with multiprocessing).
 Steeper learning curve due to async/await syntax.
+
+
+
+
+
+----------------------------------------------------------------------------------------
+
+
+                            Git Setup and Configuration
+
+1.1 Configure User Information
+
+    git config --global user.name "Your Name"
+    git config --global user.email "youremail@example.com"
+
+1.2 Check Configuration
+
+    git config --list
+
+                                    
+                                 Repository Management
+
+2.1 Initialize a Repository
+
+    git init
+
+2.2 Clone a Repository
+
+    git clone <repository-url>
+
+2.3 View Repository Status
+
+    git status
+
+                            Staging and Committing Changes
+
+3.1 Add Files to Staging Area
+
+    git add <file>
+    git add . # Add all changes
+
+3.2 Commit Changes
+
+    git commit -m "Commit message"
+
+3.3 Commit Skipping Staging Area
+
+    git commit -am "Commit message"
+
+                                     Branch Management
+
+4.1 Create a New Branch
+
+    git branch <branch-name>
+
+4.2 Switch Branch
+
+    git checkout <branch-name>
+
+4.3 Create and Switch to a New Branch
+
+    git checkout -b <branch-name>
+
+4.4 List All Branches
+
+    git branch
+
+4.5 Delete a Branch
+
+    git branch -d <branch-name> # Safe deletion
+    git branch -D <branch-name> # Force deletion
+
+                                Merging and Rebasing
+
+5.1 Merge Branches
+
+    git merge <branch-name>
+
+5.2 Rebase Branches
+
+    git rebase <branch-name>
+
+                                        Undoing Changes
+
+6.1 Unstage Files
+
+    git reset <file>
+
+6.2 Undo Last Commit (Keep Changes)
+
+    git reset --soft HEAD~1
+
+6.3 Undo Last Commit (Discard Changes)
+
+    git reset --hard HEAD~1
+
+6.4 Discard All Local Changes
+
+    git checkout -- .
+
+                                    Viewing History
+
+7.1 Show Commit History
+
+    git log
+
+7.2 Show One-Line History
+
+    git log --oneline
+
+7.3 Show Changes in a Commit
+
+    git show <commit-hash>
+
+                                Stashing Changes
+
+8.1 Save Changes to Stash
+
+    git stash
+
+8.2 List Stashes
+
+    git stash list
+
+8.3 Apply Stash
+
+    git stash apply
+
+8.4 Drop Stash
+
+    git stash drop
+
+                                    Remote Repositories
+
+9.1 Add Remote Repository
+
+    git remote add origin <repository-url>
+
+9.2 View Remote Repositories
+
+    git remote -v
+
+9.3 Fetch Changes from Remote
+
+    git fetch
+
+9.4 Push Changes to Remote
+
+    git push origin <branch-name>
+
+9.5 Pull Changes from Remote
+
+    git pull
+
+                                    Tagging
+
+10.1 Create a Tag
+
+    git tag <tag-name>
+
+10.2 Push Tags to Remote
+
+    git push origin --tags
+
+10.3 List Tags
+
+    git tag
+
+10.4 Delete a Tag
+
+    git tag -d <tag-name>
+
+                                Working with Submodules
+
+11.1 Add a Submodule
+
+    git submodule add <repository-url>
+
+11.2 Update Submodules
+
+    git submodule update --remote
+
+                                    Troubleshooting
+
+12.1 Resolve Merge Conflicts
+
+    Edit conflicting files manually.
+
+Mark conflicts as resolved:
+
+    git add <file>
+
+Commit the changes:
+
+    git commit
+
+12.2 View Differences
+    git diff
