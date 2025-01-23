@@ -307,7 +307,16 @@ Steeper learning curve due to async/await syntax.
 
 2.3 View Repository Status
 
-    git status
+    git status          --- $ git status
+                            On branch main
+                            Your branch is up to date with 'origin/main'.
+
+                            Changes not staged for commit:
+                            (use "git add <file>..." to update what will be committed)
+                            (use "git restore <file>..." to discard changes in working directory)
+                                    modified:   instructions.txt
+
+                            no changes added to commit (use "git add" and/or "git commit -a")
 
                             Staging and Committing Changes
 
@@ -339,13 +348,18 @@ Steeper learning curve due to async/await syntax.
     git checkout -b <branch-name>
 
 4.4 List All Branches
+    git branch          (local branches)
+    git branch -r       (to see remote branches)
+    git branch -a       (to see all branches)
 
-    git branch
 
 4.5 Delete a Branch
 
     git branch -d <branch-name> # Safe deletion
     git branch -D <branch-name> # Force deletion
+
+4.6 Rename the branch
+    git branch -M <name>
 
                                 Merging and Rebasing
 
