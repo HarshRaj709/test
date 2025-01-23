@@ -33,6 +33,8 @@
 #     raise ValueError("Something went wrong")
 
 
+
+
 # import threading
 # import time
 
@@ -46,17 +48,17 @@
 #         print(f"Letter: {letter}")
 #         time.sleep(1)  # Simulates a delay
 
-# # Creating threads
+
 # thread1 = threading.Thread(target=print_numbers)
 # thread2 = threading.Thread(target=print_letters)
 
-# # Starting threads
+
 # thread1.start()
 # thread2.start()
 
-# # Waiting for threads to finish
-# # thread1.join()
-# # thread2.join()
+
+# thread1.join()              #this will help us to wait for the thread to finish
+# thread2.join()
 
 # print("Both tasks are done!")
 
@@ -90,20 +92,20 @@
 
 
 
-import asyncio
+# import asyncio
 
-async def jump_short():
-    print("Jumping short")
-    await asyncio.sleep(2)      #here we can download the file which may take some time
-    print("Short jump done")
+# async def jump_long():
+#     print("Jumping long")
+#     await asyncio.sleep(5)
+#     print("Long jump done")
 
-async def jump_long():
-    print("Jumping long")
-    await asyncio.sleep(5)
-    print("Long jump done")
+# async def jump_short():
+#     print("Jumping short")
+#     await asyncio.sleep(2)      #here we can download the file which may take some time
+#     print("Short jump done")
 
-async def main():
-    await asyncio.gather(jump_short(), jump_long())
+# async def main():
+#     await asyncio.gather( jump_long(),jump_short())
 
-asyncio.run(main())
+# asyncio.run(main())
 

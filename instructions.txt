@@ -78,13 +78,13 @@ Use pyenv to install different Python versions that you need for your projects. 
     pyenv install 3.9.6
 
 we can also check available versions:
-    pyenv install --list
+    pyenv install versions
 
 Set python version globally
     pyenv global 3.8.10
 
 set python version Locally
-    pyenv locally 3.9.9
+    pyenv local 3.9.9
 
 
 
